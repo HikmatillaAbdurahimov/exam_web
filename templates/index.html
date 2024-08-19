@@ -1,0 +1,160 @@
+    {% extends 'main/base.html' %}
+    {% load static %}
+    {% block content %}
+
+
+        <!-- Services Start -->
+        <div class="container-fluid service pb-5">
+            <div class="container pb-5">
+                <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
+                    <h4 class="text-primary"></h4>
+                    <h4 class="display-5 mb-4">Onlayn kursimiz bilan bilimlaringizni yangi darajaga ko‘tarishga tayyormisiz </h4>
+                    <p class="mb-0">
+                    </p>
+                </div>
+                <div class="row g-4">
+                     {% for course_modul in course_moduls %}
+                        <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.6s">
+                            <div class="service-item">
+                                <div class="service-img">
+                                    <img src="{{ course_modul.image }}" class="img-fluid rounded-top w-100" alt="Image">
+                                </div>
+                                <div class="rounded-bottom p-4">
+                                    <a href="{% url 'course' %}" class="h4 d-inline-block mb-4">Model :{{ course_modul.course_module_name }}</a>
+                                    <p class="mb-4">Description :{{ course_modul.description }}</p>
+                                    <h2></h2>
+                                    <p class="mb-4">Listing :({{ course_modul.listing }})</p>
+                                    <a class="btn btn-primary rounded-pill py-2 px-4" href="{{ course_modul.course.course_name }}">Learn More</a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <!-- Services End -->
+
+        <!-- Blog Start -->
+        <div class="container-fluid blog pb-5">
+            <div class="container pb-5">
+                <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
+                    <h4 class="text-primary"></h4>
+                    <h1 class="display-5 mb-4"> Qulaylik va malakali ta'limni birlashtirgan darslarimiz sizni kutmoqda </h1>
+                    <p class="mb-0">
+                    </p>
+                </div>
+                <div class="owl-carousel blog-carousel wow fadeInUp" data-wow-delay="0.2s">
+                    {% for course in courses %}
+                        <div class="blog-item p-4">
+                            <div class="blog-img mb-4">
+                                <img src="{{ course.image }}" class="img-fluid w-100 rounded" alt="">
+                                <div class="blog-title">
+                                    <a href="#" class="btn">Non-Dividend Stocks</a>
+                                </div>
+                            </div>
+                            <a href="#" class="h4 d-inline-block mb-3">Course :{{ course.course_name }}</a>
+                            <h2></h2>
+                            <a href="#" class="h4 d-inline-block mb-3">Price :{{ course.price }}$</a>
+                            <h6></h6>
+                            <a href="#" class="h4 d-inline-block mb-3">Listing :({{ course.listing }})</a>
+                            <p class="mb-4">{{ course.description }}
+                            </p>
+                            <div class="d-flex align-items-center">
+                                <img src="{{ course.teachers.image }}" class="img-fluid rounded-circle" style="width: 60px; height: 60px;" alt="">
+                                <div class="ms-3">
+                                    <h5>Admin</h5>
+                                    <p class="mb-0">{{ course.teachers.first_name }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <!-- Blog End -->
+
+
+
+        <!-- Team Start -->
+        <div class="container-fluid team pb-5">
+            <div class="container pb-5">
+                <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
+                    <h4 class="text-primary"></h4>
+                    <h1 class="display-5 mb-4"> Malakali o'qtuvchilar </h1>
+                    <p class="mb-0">
+                    </p>
+                </div>
+                <div class="row g-4">
+                    {% for teacher in teachers %}
+                        <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.8s">
+                            <div class="team-item">
+                                <div class="team-img">
+                                    <img src="{{ teacher.image }}" class="img-fluid" alt="">
+                                </div>
+                                <div class="team-title">
+                                    <h4 class="mb-0">{{ teacher.first_name }} {{ teacher.last_name }}</h4>
+                                    <p class="mb-0">{{ teacher.status }}</p>
+                                </div>
+                                <div class="team-icon">
+                                    <a class="btn btn-primary btn-sm-square rounded-circle me-3" href="{% url 'team' %}"><i class="fab fa-facebook-f"></i></a>
+                                    <a class="btn btn-primary btn-sm-square rounded-circle me-3" href="{% url 'team' %}"><i class="fab fa-twitter"></i></a>
+                                    <a class="btn btn-primary btn-sm-square rounded-circle me-3" href="{% url 'team' %}"><i class="fab fa-linkedin-in"></i></a>
+                                    <a class="btn btn-primary btn-sm-square rounded-circle me-0" href="{% url 'team' %}"><i class="fab fa-instagram"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <!-- Team End -->
+
+        <!-- Testimonial Start -->
+        <div class="container-fluid testimonial pb-5">
+            <div class="container pb-5">
+                <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
+                    <h4 class="text-primary"></h4>
+                    <h1 class="display-5 mb-4">Sayt foydalanuvchilari</h1>
+                    <p class="mb-0">
+                    </p>
+                </div>
+                <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.2s">
+                    {% for student_comment in student_comments %}
+                        <div class="testimonial-item">
+                            <div class="testimonial-quote-left">
+                                <i class="fas fa-quote-left fa-2x"></i>
+                            </div>
+                            <div class="testimonial-img">
+                                <img src="{{ student_comment.student.image }}" class="img-fluid" alt="Image">
+                            </div>
+                            <div class="testimonial-text">
+                                <p class="mb-0">{{ student_comment.comment }}
+                                </p>
+                            </div>
+                            <div class="testimonial-title">
+                                <div>
+                                    <h4 class="mb-0">{{ student_comment.student.first_name }}</h4>
+                                    <p class="mb-0">{{ student_comment.course_model.course_module_name }}</p>
+                                    <h2></h2>
+                                    <p class="mb-0">like :({{ student_comment.listing }})♥️</p>
+                                </div>
+                                <div class="d-flex text-primary">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                            <div class="testimonial-quote-right">
+                                <i class="fas fa-quote-right fa-2x"></i>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <!-- Testimonial End -->
+
+    {% endblock %}
+

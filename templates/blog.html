@@ -1,0 +1,45 @@
+ {% extends 'main/base.html' %}
+    {% load static %}
+    {% block content %}
+
+
+        <!-- Blog Start -->
+        <div class="container-fluid blog pb-5">
+            <div class="container pb-5">
+                <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
+                    <h4 class="text-primary"></h4>
+                    <h1 class="display-5 mb-4"> Qulaylik va malakali ta'limni birlashtirgan darslarimiz sizni kutmoqda </h1>
+                    <p class="mb-0">
+                    </p>
+                </div>
+                <div class="owl-carousel blog-carousel wow fadeInUp" data-wow-delay="0.2s">
+                    {% for course in courses %}
+                        <div class="blog-item p-4">
+                            <div class="blog-img mb-4">
+                                <img src="{{ course.image }}" class="img-fluid w-100 rounded" alt="">
+                                <div class="blog-title">
+                                    <a href="#" class="btn">Non-Dividend Stocks</a>
+                                </div>
+                            </div>
+                            <a href="#" class="h4 d-inline-block mb-3">Course :{{ course.course_name }}</a>
+                            <h2></h2>
+                            <a href="#" class="h4 d-inline-block mb-3">Price :{{ course.price }}$</a>
+                            <h6></h6>
+                            <a href="#" class="h4 d-inline-block mb-3">Listing :({{ course.listing }})</a>
+                            <p class="mb-4">{{ course.description }}
+                            </p>
+                            <div class="d-flex align-items-center">
+                                <img src="{{ course.teachers.image }}" class="img-fluid rounded-circle" style="width: 60px; height: 60px;" alt="">
+                                <div class="ms-3">
+                                    <h5>Admin</h5>
+                                    <p class="mb-0">{{ course.teachers.first_name }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <!-- Blog End -->
+
+    {% endblock %}

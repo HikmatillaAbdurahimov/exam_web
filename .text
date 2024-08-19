@@ -1,0 +1,7 @@
+1. Login
+2. Register
+3. Authentication (LoginMixView)
+4. Har bir model uchun View yozishda get, post, update, delete qismlari ishlashi kerak va ular button orqali amalga oshirilsin.
+5. Har bir model search qilish imkoniyatiga ega bo'lsin.
+6. Admin panelda search, ordering, import va export qismlari ham qo'shilsin.
+7. Biror modelni qidirish uchun id orqali emas slug orqali qidirish imkoniyatiga ega bo'lsin.
